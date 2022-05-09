@@ -1,5 +1,6 @@
 # CakePHP 3
-
+.idea
+/node_modules
 /vendor/*
 /config/app.php
 

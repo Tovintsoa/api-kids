@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  },
+  "name": "api-kids",
+  "description": "API pour l'application mobile Kidz",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tovintsoa/api-kids.git"
+  },
+  "author": "Tovintsoa <tianatovintsoa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tovintsoa/api-kids/issues"
+  },
+  "homepage": "https://github.com/Tovintsoa/api-kids#readme"
+}
