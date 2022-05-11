@@ -1,26 +1,32 @@
 const express = require("express");
 const cors =  require("cors");
+const bodyParser = require("body-parser") ;
 const { Sequelize } = require('sequelize');
+const initUserRoute = require ('./src/routes/userRouter.js')
 
 const app = express();
 
-app.use(cors());
+app.all("/*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+});
+
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(express.urlencoded({ extended: true }))
+
+initUserRoute(app)
+
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
 
-const sequelize = new Sequelize('tsiky_kids', 'tsiky', 'tsikynacks06', {
-    host: 'mysql-tsiky.alwaysdata.net',
-    dialect: 'mysql' /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
-  });
-
-  try {
-    sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
 /* var con = mysql.createConnection({
     host: "mysql-tsiky.alwaysdata.net",
     user: "tsiky",
@@ -32,8 +38,8 @@ const sequelize = new Sequelize('tsiky_kids', 'tsiky', 'tsikynacks06', {
     console.log("Connected!");
     }); */
 
-
+/* 
 app.get('/', (request, response) => {
     console.log(`URL: ${request.url}`);
     response.send('Hello, Server!');
-});
+}); */

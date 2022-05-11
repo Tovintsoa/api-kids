@@ -1,4 +1,4 @@
-const db = require ('../models')
+const db = require ('../models/base.js')
 
 const User = db.users
 
@@ -18,6 +18,7 @@ const addUser = async (req , res) => {
 const getAllUsers = async (req , res) => {
     let users = await User.findAll({
         attributes :[
+            'id',
             'name',
             'username',
             'email'

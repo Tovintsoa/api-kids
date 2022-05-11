@@ -8,8 +8,7 @@ const sequelize = new Sequelize(
     dbConfig.PWD,{
         host: dbConfig.HOST,
         dialect: dbConfig.dialect,
-        operatorsAliases:false,
-
+        logging: false,
         pool : {
             max: dbConfig.pool.max,
             min: dbConfig.pool.min,
@@ -21,7 +20,7 @@ const sequelize = new Sequelize(
 
 sequelize.authenticate()
 .then(()=>{
-    console.log('connected');
+    console.log('Database connected');
 })
 .catch(err => {
     console.log('Error ' + err)
