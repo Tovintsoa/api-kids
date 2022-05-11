@@ -42,7 +42,7 @@ $ git push heroku main
 
 ### Liste URL
 
-getAllUser : https://api-kids.herokuapp.com/user/allUsers
+* getAllUser : https://api-kids.herokuapp.com/user/allUsers
 
 ### Authors
 
