@@ -43,7 +43,16 @@ $ git push heroku main
 ### Liste URL
 
 * getAllUsers : https://api-kids.herokuapp.com/user/allUsers
+* addUser : https://api-kids.herokuapp.com/user/addUser
+* getOneUser :  https://api-kids.herokuapp.com/user/getOne/1
+* updateUser :  https://api-kids.herokuapp.com/user/updateUser/1
+* deleteUser :  https://api-kids.herokuapp.com/user/deleteUser/1
+* authenticateUser : https://api-kids.herokuapp.com/user/authenticateUser
 * getAllCategories : https://api-kids.herokuapp.com/category/allCategories
+* addCategory : https://api-kids.herokuapp.com/category/addCategory
+* getOneCategory : https://api-kids.herokuapp.com/category/getOne/1
+* updateCategory :  https://api-kids.herokuapp.com/category/updateCategory/1
+* deleteCategory : https://api-kids.herokuapp.com/category/deleteCategory/1
 
 ### Authors
 
