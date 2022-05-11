@@ -13,6 +13,9 @@ let initUserRoute = (app) => {
 
     router.delete('/user/deleteUser/:id', userController.deleteUser)
 
+    router.post('/user/authenticateUser', userController.authenticateUser)
+
+    
 
     return app.use("/", router);
 }
