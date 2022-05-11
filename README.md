@@ -40,6 +40,10 @@ Pour mettre à jour le serveur distant heroku
 $ git push heroku main
 ```
 
+### Liste URL
+
+getAllUser : https://api-kids.herokuapp.com/user/allUsers
+
 ### Authors
 
 * [Tovintsoa](https://github.com/Tovintsoa)
