@@ -42,11 +42,13 @@ $ git push heroku main
 
 ### Liste URL
 
-* getAllUser : https://api-kids.herokuapp.com/user/allUsers
+* getAllUsers : https://api-kids.herokuapp.com/user/allUsers
+* getAllCategories : https://api-kids.herokuapp.com/category/allCategories
 
 ### Authors
 
 * [Tovintsoa](https://github.com/Tovintsoa)
+* [Tsiky](https://github.com/TsikyNavalona)
 
 ### License
 ----
