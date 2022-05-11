@@ -5,10 +5,10 @@ const User = db.users
 const addUser = async (req , res) => {
 
     let info = {
-        name : req.body.name,
-        username : req.body.username,
-        email : req.body.email,
-        password : req.body.password
+        uName : req.body.uName,
+        uUsername : req.body.uUsername,
+        uEmail : req.body.uEmail,
+        uPassword : req.body.uPassword
     }
 
     const user = await User.create(info)
@@ -19,9 +19,9 @@ const getAllUsers = async (req , res) => {
     let users = await User.findAll({
         attributes :[
             'id',
-            'name',
-            'username',
-            'email'
+            'uName',
+            'uUsername',
+            'uEmail'
         ]
     })
     res.status(200).send(users)
@@ -33,12 +33,7 @@ const getOneUser  = async (req , res) => {
     res.status(200).send(user)
 }
 
-const getOneUserByUsername  = async (req , res) => {
-    //console.log(req.body.username);
-    let username = req.body.username;
-    let user = await User.findOne({ where :{username : username} })
-    res.status(200).send(user)
-}
+
 
 const updateUser  = async (req , res) => {
     let id = req.params.id
@@ -57,9 +52,9 @@ const deleteUser = async (req , res) => {
 }
 
 const authenticateUser =async (req,res,next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    let user = await User.findOne({ where :{username : username , password : password} })
+    const uUsername = req.body.uUsername;
+    const uPassword = req.body.uPassword;
+    let user = await User.findOne({ where :{uUsername : uUsername , uPassword : uPassword} })
     if(!user){
         res.status(401).send("Username or password wrong !")
     }else{
@@ -88,7 +83,6 @@ module.exports = {
     getOneUser,
     updateUser,
     deleteUser,
-    getOneUserByUsername,
     authenticateUser,
 
 }

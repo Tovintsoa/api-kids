@@ -2,23 +2,20 @@
 
 module.exports = (sequelize, DataTypes) => {
     
-    const User = sequelize.define("user",{
-        uName :{
+    const Category = sequelize.define("category",{
+        cName :{
             type:DataTypes.STRING,
             allowNull : false
         },
-        uUsername: {
+        cDescription: {
             type:DataTypes.STRING,
             allowNull : false
         },
-        uEmail: {
+        cImage: {
             type:DataTypes.STRING,
             allowNull : false
         },
-        uPassword: {
-            type:DataTypes.STRING,
-            allowNull : false
-        },
+        
     })
-    return User
+    return Category
 }

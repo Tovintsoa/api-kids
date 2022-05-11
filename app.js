@@ -2,7 +2,8 @@ const express = require("express");
 const cors =  require("cors");
 const bodyParser = require("body-parser") ;
 const { Sequelize } = require('sequelize');
-const initUserRoute = require ('./src/routes/userRouter.js')
+const initUserRoute = require ('./src/routes/userRouter.js');
+const initCategoryRoute = require("./src/routes/categoryRouter.js");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }))
 
 initUserRoute(app)
+initCategoryRoute(app)
 
 
 const PORT = process.env.PORT || 8080;
