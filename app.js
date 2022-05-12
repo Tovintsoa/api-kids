@@ -4,6 +4,7 @@ const bodyParser = require("body-parser") ;
 const { Sequelize } = require('sequelize');
 const initUserRoute = require ('./src/routes/userRouter.js');
 const initCategoryRoute = require("./src/routes/categoryRouter.js");
+const initVideoRoute = require("./src/routes/videoRouter.js");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }))
 
 initUserRoute(app)
 initCategoryRoute(app)
+initVideoRoute(app)
 
 
 const PORT = process.env.PORT || 8080;

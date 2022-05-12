@@ -33,6 +33,7 @@ db.sequelize = sequelize
 
 db.users = require('./userModel.js')(sequelize,DataTypes)
 db.categories = require('./categoryModel.js')(sequelize, DataTypes)
+db.videos = require('./videoModel.js')(sequelize, DataTypes)
 
 db.sequelize.sync({ force:false })
 .then( ()=> {
