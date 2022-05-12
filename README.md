@@ -5,7 +5,7 @@ API Kids est la source de donnée qui va alimenter l'application mobile KIDZ
 
 ### Tech
 
-Book Store uses a number of open source projects to work:
+API kidz uses a number of open source projects to work:
 * [NodeJS](https://nodejs.org/en/) - Evented I/O for the backend
 * [ExpressJS](https://expressjs.com) - Fast, unopinionated, minimalist web framework for NodeJS
 
