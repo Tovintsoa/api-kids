@@ -29,6 +29,21 @@ const getAllVideos = async (req , res) => {
     res.status(200).send(videos)
 }
 
+const getAllVideosByCategory = async (req , res) => {
+    let vIdCategory = req.params.vIdCategory
+    let videos = await Video.findAll({
+        where :{vIdCategory : vIdCategory},
+        attributes :[
+            'id',
+            'vIdCategory',
+            'vName',
+            'vUrl'
+        ]
+    })
+    res.status(200).send(videos)
+}
+
+
 const getOneVideo  = async (req , res) => {
     let id = req.params.id
     let video = await Video.findOne({ where :{id : id} })
@@ -61,5 +76,5 @@ module.exports = {
     getOneVideo,
     updateVideo,
     deleteVideo,
-
+    getAllVideosByCategory,
 }
