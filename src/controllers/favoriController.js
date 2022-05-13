@@ -10,17 +10,17 @@ const addFavori = async (req , res) => {
     }
     try {
         let favoris = await Favori.findOne({
-            where :{fIdUser : fIdUser , fIdVideo : fIdVideo}
+            where :{fIdUser : info.fIdUser , fIdVideo : info.fIdVideo}
         })
         if(!favoris){
             const favori = await Favori.create(info)
             res.status(200).send(favori)
         }
-        else{
+        else if(favoris){
             res.status(400).send("already favori")
         }
     } catch (error) {
-        res.status(400).send("user or video not existed")
+        res.status(400).send("user or video not existed ")
     }
 }
 
