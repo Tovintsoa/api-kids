@@ -9,7 +9,6 @@ let initVideoRoute = (app) => {
 
     router.get('/video/allVideosByCategory/:vIdCategory', videoController.getAllVideosByCategory)
     
-
     router.get('/video/getOne/:id', videoController.getOneVideo)
 
     router.put('/video/updateVideo/:id', videoController.updateVideo)
