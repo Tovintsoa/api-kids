@@ -40,6 +40,37 @@ Pour mettre à jour le serveur distant heroku
 $ git push heroku main
 ```
 
+### Liste classes
+
+
+<h4>User</h4>
+
+* id
+* uName
+* uUsername
+* uEmail
+* uPassword
+
+<h4>Categorie</h4>
+
+* id
+* cName
+* cDescription
+* cImage
+
+<h4>Video</h4>
+
+* id
+* vIdCategory
+* vName
+* vUrl
+
+<h4>Favori</h4>
+
+* id
+* fIdVideo
+* fIdUser 
+
 ### Liste URL
 
 <h4>User</h4>
