@@ -14,8 +14,7 @@ let initFavoriRoute = (app) => {
     router.put('/favori/updateFavori/:id', favoriController.updateFavori)
 
     router.delete('/favori/deleteFavori/:id', favoriController.deleteFavori)
-
-
+    
     return app.use("/", router);
 }
 
