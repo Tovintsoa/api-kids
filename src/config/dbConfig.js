@@ -1,3 +1,4 @@
+
 module.exports = {
     HOST : 'mysql-tsiky.alwaysdata.net',
     USER : 'tsiky',
@@ -10,5 +11,5 @@ module.exports = {
         min : 0,
         acquire : 30000,
         idle : 10000
-    } 
+    }
 }

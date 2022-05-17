@@ -1,6 +1,20 @@
-const db = require ('../models/base.js')
+var mysql = require('mysql');
 
+const db = require ('../models/base.js')
+const dbConfig = require('../config/dbConfig.js');
+
+const con = mysql.createConnection({
+    host: dbConfig.HOST,
+    user: dbConfig.USER,
+    password: dbConfig.PWD,
+    database: dbConfig.DB
+  });
+
+  con.connect(function(err) {
+	if (err) throw err
+});
 const Favori = db.favoris
+const Video = db.videos
 
 const addFavori = async (req , res) => {
 
@@ -30,9 +44,16 @@ const getAllFavoris = async (req , res) => {
             'id',
             'fIdVideo',
             'fIdUser',
-        ]
+        ],
     })
     res.status(200).send(favoris)
+}
+
+
+const getAllFavorisV2 = async (req , res) => {
+    con.query("select favoris.id, favoris.fIdUser, users.uUsername, favoris.fIdVideo, videos.vName, videos.vUrl FROM favoris, users, videos WHERE favoris.fIdUser = users.id AND favoris.fIdVideo = videos.id", function(err,fields,rows){
+        res.status(200).send(fields)
+    })
 }
 
 const getAllFavorisByUser = async (req , res) => {
@@ -48,6 +69,12 @@ const getAllFavorisByUser = async (req , res) => {
     res.status(200).send(favoris)
 }
 
+const getAllFavorisByUserV2 = async (req , res) => {
+    let fIdUser = req.params.fIdUser
+    con.query("select favoris.id, favoris.fIdUser, users.uUsername, favoris.fIdVideo, videos.vName, videos.vUrl FROM favoris, users, videos WHERE favoris.fIdUser = users.id AND favoris.fIdVideo = videos.id AND favoris.fIdUser="+fIdUser, function(err,fields,rows){
+        res.status(200).send(fields)
+    })
+}
 
 const getOneFavori  = async (req , res) => {
     let id = req.params.id
@@ -55,7 +82,12 @@ const getOneFavori  = async (req , res) => {
     res.status(200).send(favori)
 }
 
-
+const getOneFavoriV2 = async (req , res) => {
+    let id = req.params.id
+    con.query("select favoris.id, favoris.fIdUser, users.uUsername, favoris.fIdVideo, videos.vName, videos.vUrl FROM favoris, users, videos WHERE favoris.fIdUser = users.id AND favoris.fIdVideo = videos.id AND favoris.id = "+id, function(err,fields,rows){
+        res.status(200).send(fields)
+    })
+}
 
 const updateFavori  = async (req , res) => {
     let id = req.params.id
@@ -82,4 +114,7 @@ module.exports = {
     updateFavori,
     deleteFavori,
     getAllFavorisByUser,
+    getAllFavorisV2,
+    getAllFavorisByUserV2,
+    getOneFavoriV2
 }
