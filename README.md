@@ -71,6 +71,15 @@ $ git push heroku main
 * fIdVideo
 * fIdUser 
 
+<h4>FavoriView</h4>
+
+* id
+* fIdUser
+* uUsername
+* fIdVideo
+* vName
+* vUrl
+
 ### Liste URL
 
 <h4>User</h4>
@@ -107,6 +116,12 @@ $ git push heroku main
 * getOneFavori : https://api-kids.herokuapp.com/favori/getOne/:id
 * updateFavori :  https://api-kids.herokuapp.com/favori/updateFavori/:id
 * deleteFavori : https://api-kids.herokuapp.com/favori/deleteFavori/:id
+
+<h4> Favori view </h4>
+
+* getAllFavorisV2 : https://api-kids.herokuapp.com/favori/allFavorisV2
+* getAllFavorisByUserV2 : https://api-kids.herokuapp.com/favori/allFavorisByUserV2/:fIdUser
+* getOneFavoriV2 : https://api-kids.herokuapp.com/favori/getOneV2/:id
 
 ### Authors
 
