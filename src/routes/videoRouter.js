@@ -6,6 +6,10 @@ let initVideoRoute = (app) => {
     router.post('/video/addVideo', videoController.addVideo)
 
     router.get('/video/allVideos', videoController.getAllVideos)
+    
+    
+    router.get('/video/allVideosV2', videoController.getAllVideosV2)
+    
 
     router.get('/video/allVideosByCategory/:vIdCategory', videoController.getAllVideosByCategory)
     
@@ -15,6 +19,7 @@ let initVideoRoute = (app) => {
 
     router.delete('/video/deleteVideo/:id', videoController.deleteVideo)
 
+    router.post('/video/submitVideo',videoController.addVideoView)
 
     return app.use("/", router);
 }

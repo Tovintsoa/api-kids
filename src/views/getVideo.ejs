@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title><%= title %></title>
+</head>
+<body  style="background-color: #F2F2F2;">
+    <div class="text-center center-div">
+        <div class="container w-50 border py-5 rounded mt-5 mb-5" style="background-color: #FFF;">
+            <a class="btn btn-outline-dark" style="margin-left: -80%;" href="/video/addVideoView">Add Video</a>
+            <div class="title pb-4">
+                <img src="https://i.ibb.co/Wx03FFG/logoKidz.png" alt="logoKidz" style="width: 250px;">
+                <h2 class="font-weight bold">
+                    List of Video :
+                </h2>
+            </div>
+            <table  class="table ml-2 mr-2">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Video Name</th>
+                      <th scope="col">Video Url</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0; i < allVideos.length; i++) { %>
+                        <tr>
+                            <th scope="row"><%= i %></th>
+                            <td><%= allVideos[i].vName %></td>
+                            <td> <a target="_blank" href="https://www.youtube.com/watch?v=<%= allVideos[i].vUrl %>">https://www.youtube.com/watch?v=<%= allVideos[i].vUrl %></a> </td>
+                          </tr>
+                    <% } %>
+                    
+                  </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
