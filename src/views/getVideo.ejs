@@ -22,6 +22,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Video Name</th>
+                      <th scope="col">Category Name</th>
                       <th scope="col">Video Url</th>
                     </tr>
                   </thead>
@@ -30,6 +31,7 @@
                         <tr>
                             <th scope="row"><%= i %></th>
                             <td><%= allVideos[i].vName %></td>
+                            <td><%= allVideos[i].cName %></td>
                             <td> <a target="_blank" href="https://www.youtube.com/watch?v=<%= allVideos[i].vUrl %>">https://www.youtube.com/watch?v=<%= allVideos[i].vUrl %></a> </td>
                           </tr>
                     <% } %>

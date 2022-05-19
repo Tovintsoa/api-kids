@@ -45,7 +45,7 @@ app.get('/video/addVideoView',(req,res)=>{
 });
 
 app.get('/video/getVideoView',(req,res)=>{
-    request.get("https://api-kids.herokuapp.com/video/allVideos",  (error,response,body) =>{
+    request.get("https://api-kids.herokuapp.com/video/allVideosV2",  (error,response,body) =>{
         res.render('getVideo',{title:'Get Video Page',allVideos: JSON.parse(body)})
     })
 });
