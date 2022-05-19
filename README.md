@@ -80,6 +80,14 @@ $ git push heroku main
 * vName
 * vUrl
 
+### Liste Interface
+
+<h4>Video</h4>
+
+* Interface add Video : https://api-kids.herokuapp.com/video/addVideoView
+* Interface List Video : https://api-kids.herokuapp.com/video/getVideoView
+
+
 ### Liste URL
 
 <h4>User</h4>
