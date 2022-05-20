@@ -1,6 +1,15 @@
 var mysql = require('mysql');
 const db = require ('../models/base.js')
 const dbConfig = require('../config/dbConfig.js');
+var admin = require("firebase-admin");
+
+var serviceAccount = require("../../service_account.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+
 
 const Video = db.videos
 
@@ -39,8 +48,24 @@ const addVideoView =  async (req , res) => {
     }
     try {
         const video = await Video.create(info)
-        //res.status(200).send(video)
-        //res.locals.query = req.query;
+        var tokenregistr = ["cdAz6oh7SMKv_geNDcRofI:APA91bEHsKYQXw_eAoV5G6eNkwRwxRe8X3-CUcObQcT579osagTRDAwzGXy8A07SXYCZ4T9IKTdYzupKZocV7GSaeMLOLG8LY09fQ4geL_zJDnwgLy3q1K9WoHOIIxyM4yL9st4suWGB"
+        ,"eujxxqELScW_0QbhGwjGuD:APA91bF6x2soF2vWDHgRmg_pv5-iKta7K8RtumUMtlPSVHL37n8yP2QQF1JznuohyV5cOv-zQNEGX"];
+        var payload = {
+            notification: {
+                title: "yoo",
+                body: "New Video Added"
+            }
+        };
+        var options = {
+            priority :"high",
+            timeToLive: 60*60*24
+        };
+        admin.messaging().sendToDevice(tokenregistr,payload,options).then(function(response){
+            console.log("message sent :"+ response );
+        })
+        .catch(function(error){
+            console.log("Error : "+ error);
+        }); 
         res.redirect('/video/getVideoView');
 
     } catch (error) {
