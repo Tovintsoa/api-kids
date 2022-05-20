@@ -7,8 +7,8 @@ const initUserRoute = require ('./src/routes/userRouter.js');
 const initCategoryRoute = require("./src/routes/categoryRouter.js");
 const initVideoRoute = require("./src/routes/videoRouter.js");
 const initFavoriRoute = require("./src/routes/favoriRouter.js");
+const initTokenAndroidRoute = require("./src/routes/tokenAndroidRouter.js");
 
-const categoryController = require ('./src/controllers/categoryController.js');
 const { response } = require("express");
 
 const app = express();
@@ -36,6 +36,7 @@ initUserRoute(app)
 initCategoryRoute(app)
 initVideoRoute(app)
 initFavoriRoute(app)
+initTokenAndroidRoute(app)
 
 
 app.get('/video/addVideoView',(req,res)=>{
