@@ -65,7 +65,7 @@ const addVideoView =  async (req , res) => {
         })
         .catch(function(error){
             console.log("Error : "+ error);
-        }); 
+        });
         res.redirect('/video/getVideoView');
 
     } catch (error) {
@@ -105,6 +105,17 @@ const getAllVideosByCategory = async (req , res) => {
     res.status(200).send(videos)
 }
 
+const searchVideo = async(req,res) => {
+
+      let search = req.params.search
+      con.query("select videos.id,videos.vIdCategory,categories.cName,videos.vName,videos.vUrl from videos,categories where videos.vIdCategory = categories.id and videos.vName LIKE '%"+search+"%' ", function(err,fields,rows){
+        if(fields){
+            res.status(200).send(fields)
+        }else{
+          res.status(400).send('No video found')
+        }
+      })
+}
 
 const getOneVideo  = async (req , res) => {
     let id = req.params.id
@@ -140,5 +151,6 @@ module.exports = {
     updateVideo,
     deleteVideo,
     getAllVideosByCategory,
-    addVideoView
+    addVideoView,
+    searchVideo
 }
