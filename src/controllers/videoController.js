@@ -13,6 +13,8 @@ admin.initializeApp({
 
 const Video = db.videos
 
+
+
 const con = mysql.createConnection({
     host: dbConfig.HOST,
     user: dbConfig.USER,
@@ -48,24 +50,32 @@ const addVideoView =  async (req , res) => {
     }
     try {
         const video = await Video.create(info)
-        var tokenregistr = ["cdAz6oh7SMKv_geNDcRofI:APA91bEHsKYQXw_eAoV5G6eNkwRwxRe8X3-CUcObQcT579osagTRDAwzGXy8A07SXYCZ4T9IKTdYzupKZocV7GSaeMLOLG8LY09fQ4geL_zJDnwgLy3q1K9WoHOIIxyM4yL9st4suWGB"
-        ,"eujxxqELScW_0QbhGwjGuD:APA91bF6x2soF2vWDHgRmg_pv5-iKta7K8RtumUMtlPSVHL37n8yP2QQF1JznuohyV5cOv-zQNEGX"];
         var payload = {
             notification: {
-                title: "yoo",
-                body: "New Video Added"
+                title: "Kidz",
+                body: "New Video Added : "+info.vName
             }
         };
         var options = {
             priority :"high",
             timeToLive: 60*60*24
         };
-        admin.messaging().sendToDevice(tokenregistr,payload,options).then(function(response){
-            console.log("message sent :"+ response );
+        
+        con.query("select token from TokenAndroid", function(err,fields,rows){
+            
+            var array = [];
+            for(var i = 0 ; i < fields.length;i++){
+            array.push(fields[i].token)
+            
+            }
+            
+            admin.messaging().sendToDevice(array,payload,options).then(function(response){
+                console.log("message sent to "+array.length +" devices :"+ response );
+            }).catch(function(error){
+                console.log("Error : "+ error);
+            });
         })
-        .catch(function(error){
-            console.log("Error : "+ error);
-        });
+        
         res.redirect('/video/getVideoView');
 
     } catch (error) {
